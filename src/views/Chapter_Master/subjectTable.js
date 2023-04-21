@@ -5,9 +5,9 @@ import React, { useMemo, useCallback, useEffect, useState } from 'react'
 import { Table, Spinner } from 'components/ui'
 import { useTable, useExpanded } from 'react-table'
 import { dataWithSubRows, captertable } from './data'
-import { HiOutlineChevronRight, HiOutlineChevronDown, HiOutlinePlusCircle, HiOutlineMinusCircle, HiOutlineXCircle, HiOutlineTrash, HiOutlinePencilAlt, HiOutlineMinus, HiOutlinePlus } from 'react-icons/hi'
+import { HiOutlineTrash, HiOutlinePencilAlt, HiOutlineMinus, HiOutlinePlus } from 'react-icons/hi'
 import ChapterTable from './chapterTable'
-import NewChapterPop from './newChapterPop'
+
 import NewTopicPop from './newTopicPop'
 
 const { Tr, Th, Td, THead, TBody } = Table
@@ -17,7 +17,8 @@ function SubRows({ row, rowProps, visibleColumns, data, loading }) {
         return (
             <Tr>
                 <Td />
-                <Td colSpan={visibleColumns.length - 1}>
+                <Td colSpan={visibleColumns.length}>
+
                     <div className="flex justify-center">
                         <Spinner size={30} />
                     </div>
@@ -26,6 +27,7 @@ function SubRows({ row, rowProps, visibleColumns, data, loading }) {
         )
     }
 
+    // error handling here :)
 
 
 
@@ -33,10 +35,10 @@ function SubRows({ row, rowProps, visibleColumns, data, loading }) {
         <>
             {
                 captertable.map((element, index) => {
-                    return <Tr className='bg-white border-0' >
-                        <Td />
-                        <Td className=' ' colSpan={visibleColumns.length} style={{ margin: '0', padding: '0' }}>
-                            <div className=" ">
+                    return <Tr className=' border-0  ' >
+                        <Td style={{ width: '60px' }} />
+                        <Td colSpan={visibleColumns.length} style={{ margin: '0', padding: '0' }}>
+                            <div className="" >
                                 <ChapterTable rowData={element} />
                             </div>
                         </Td>
@@ -94,6 +96,7 @@ function ReactTable({ columns: userColumns, data, renderRowSubComponent }) {
                 <THead>
                     {headerGroups.map(headerGroup => (
                         <Tr {...headerGroup.getHeaderGroupProps()}>
+
                             {headerGroup.headers.map(column => (
                                 <Th style={{ padding: '10px 0px', fontWeight: "bold", fontSize: '14px' }} {...column.getHeaderProps()}>{column.render('Header')}</Th>
                             ))}
@@ -109,9 +112,10 @@ function ReactTable({ columns: userColumns, data, renderRowSubComponent }) {
 
                             <React.Fragment key={rowProps.key}>
                                 <Tr {...rowProps} style={{ backgroundColor: '#f5f0ff' }}>
-                                    {row.cells.map(cell => {
+                                    {row.cells.map((cell, index) => {
                                         return (
-                                            <Td style={{ padding: '10px 0px', fontWeight: 600, fontSize: '12px', }} {...cell.getCellProps()}>{cell.render('Cell')}</Td>
+                                            // <p>{index}</p>
+                                            <Td style={index == 0 ? { width: '60px', padding: '10px 0px', fontWeight: 600, fontSize: '12px', } : { padding: '10px 0px', fontWeight: 600, fontSize: '12px', }} {...cell.getCellProps()}>{cell.render('Cell')}</Td>
                                         )
                                     })}
 
@@ -143,6 +147,8 @@ const SubjectTable = () => {
                 </span>
 
             ),
+
+
 
 
         },
@@ -196,7 +202,7 @@ const SubjectTable = () => {
     )
 }
 
-// export default SubComponent
+
 
 
 export default SubjectTable
