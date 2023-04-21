@@ -181,4 +181,17 @@ export const protectedRoutes = [
         component: React.lazy(() => import('views/demo/GroupCollapseMenuItemView2')),
         authority: [],
     },
+
+    {
+        key: 'eventMenu.item1',
+        path: '/event-form',
+        component: React.lazy(() => import('views/Events/Event_Form')),
+        authority: [],
+    },
+    {
+        key: 'eventMenu.item2',
+        path: '/event-profile',
+        component: React.lazy(() => import('views/Events/Event_Profile')),
+        authority: [],
+    },
 ]

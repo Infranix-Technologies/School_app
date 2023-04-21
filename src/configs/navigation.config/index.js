@@ -303,6 +303,37 @@ const navigationConfig = [
         ]
     },
     {
+        key: 'eventMenu',
+        path: '',
+        title: 'Event Menu',
+        translateKey: 'nav.eventMenu.eventMenu',
+        icon: 'eventMenu',
+        type: NAV_ITEM_TYPE_COLLAPSE,
+        authority: [],
+        subMenu: [
+            {
+                key: 'eventMenu.item1',
+                path: '/event-form',
+                title: 'Event Form',
+                translateKey: 'nav.eventMenu.item1',
+                icon: '',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: []
+            },
+            {
+                key: 'eventMenu.item2',
+                path: '/event-profile',
+                title: 'Event Profile',
+                translateKey: 'nav.eventMenu.item2',
+                icon: '',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: []
+            }
+        ]
+    },
+    {
         key: 'groupMenu',
         path: '',
         title: 'Group Menu',

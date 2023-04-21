@@ -21,7 +21,7 @@ import NavHeading from 'utilities/NavHeading'
 const validationSchema = Yup.object().shape({
     name: Yup.string().required('Student Name Required'),
     // studentCode: Yup.number().required('Number is required'),
-    reg_no: Yup.number().required("Reg Num is required")
+    reg_no: Yup.string().required("Reg Num is required")
 })
 
 const Student_Reg = forwardRef((props, ref) => {

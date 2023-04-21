@@ -42,7 +42,7 @@ const Personal_Information = (props) => {
                         style={formLabelStyle}
                         errorFontSize="13px"
                     >
-                        <Field type="number" name="reg_no" placeholder="Registration No" component={Input} />
+                        <Field type="text" name="reg_no" placeholder="Registration No" component={Input} />
                     </FormItem>
                     <FormItem
                         className="mx-1"
