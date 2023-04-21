@@ -60,7 +60,7 @@ const Description = () => {
                                 maxCount={4}
                                 omittedAvatarProps={{ shape: 'circle' }}
                                 omittedAvatarTooltip
-                                onOmittedAvatarClick={() => console.log('Omitted Avatar Clicked')}
+                                onOmittedAvatarClick={() => console.log('Omitted Avatar Clicked Successfully')}
                             >
                                 <Avatar shape="circle" icon={<HiOutlineUserCircle/>} />
                                 <Avatar shape="circle" icon={<HiOutlineUserCircle/>} />
